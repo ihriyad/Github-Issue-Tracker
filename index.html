@@ -27,28 +27,29 @@
         <!-- form  -->
         <div class="font-medium">
           <form action="" class="form flex flex-col space-y-2">
-            <label for="username">Username</label>
+            <label for="input-username">Username</label>
             <input
               type="text"
               name=""
-              id=""
+              id="input-username"
               placeholder="Enter Username"
               required
             />
             <p class="text-blue-600">Default: admin</p>
 
-            <label for="password">Password</label>
+            <label for="input-password">Password</label>
             <input
               type="password"
               name=""
-              id=""
+              id="input-password"
               placeholder="Enter Password"
               required
             />
             <p class="text-blue-600">Default: admin123</p>
             <button
+              id="login-btn"
               class="bg-blue-600 text-white w-full p-3 rounded mt-3 font-semibold"
-              type="submit"
+              type="button"
             >
               Sign In
             </button>
@@ -75,5 +76,6 @@
         </div>
       </section>
     </main>
+    <script src="./scripts/1.login.js"></script>
   </body>
 </html>
