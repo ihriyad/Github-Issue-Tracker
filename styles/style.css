@@ -5,4 +5,16 @@
 }
 body{
     font-family: var(--primary-font);
+
+    --bg-primary: #F8FAFC;
+    --secondary-color: #64748B;
+}
+.form input{
+    border: 1px solid gray;
+    padding: 8px;
+    border-radius: 6px;
+}
+.form label{
+    font-size: 16px;
+    font-weight: 500;
 }

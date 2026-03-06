@@ -8,7 +8,70 @@
     <!-- tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
-    Hello this is Github Issue Tracker Login page
+  <body class="bg-[var(--bg-primary)] mx-auto">
+    <main>
+      <!-- login section  -->
+      <section class="p-4 md:p-8 space-y-6 bg-white h-[100dvh]">
+        <!-- login top -->
+        <div class="text-center space-y-1">
+          <img class="mx-auto mb-3" src="./assets/github-logo.png" alt="" />
+          <h2 class="font-semibold text-[20px] md:text-[24px]">
+            GitHub Issues Tracker
+          </h2>
+          <p class="text-[var(--secondary-color)]">
+            Sign in to manage your issues
+          </p>
+        </div>
+        <!-- form  -->
+        <div>
+          <form action="" class="form flex flex-col space-y-2">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Enter Username"
+              required
+            />
+            <p class="text-blue-600 font-medium">Default: admin</p>
+
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name=""
+              id=""
+              placeholder="Enter Password"
+              required
+            />
+            <p class="text-blue-600 font-medium">Default: admin123</p>
+            <button
+              class="bg-blue-600 text-white w-full p-3 rounded mt-3"
+              type="submit"
+            >
+              Sign In
+            </button>
+          </form>
+        </div>
+        <!-- divide line  -->
+        <div class="flex items-center my-6">
+          <div class="flex-grow border-t border-gray-300"></div>
+          <span class="mx-4 text-gray-500 text-sm">OR</span>
+          <div class="flex-grow border-t border-gray-300"></div>
+        </div>
+        <!-- demo credentials  -->
+        <div class="text-center space-y-2 font-medium">
+          <h3 class="text-[var(--secondary-color)]">Demo Credentials:</h3>
+          <div class="bg-[var(--bg-primary)] py-6 rounded-md">
+            <p>
+              Username: <span class="text-[var(--secondary-color)]">admin</span>
+            </p>
+            <p>
+              Password:
+              <span class="text-[var(--secondary-color)]">admin123</span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
