@@ -1,0 +1,148 @@
+const priorityStyles = {
+  high: { classes: "bg-red-50 text-red-500 border-red-200", text: "HIGH" },
+  medium: {
+    classes: "bg-yellow-50 text-yellow-500 border-yellow-200",
+    text: "MEDIUM",
+  },
+  low: { classes: "bg-gray-100 text-gray-400 border-gray-200", text: "LOW" },
+};
+
+const statusStyles = {
+  open: {
+    img: "./assets/Open-Status.png",
+    topBar: "border-t-4 border-green-400",
+  },
+  closed: {
+    img: "./assets/closed.png",
+    topBar: "border-t-4 border-purple-400",
+  },
+};
+
+const labelStyles = {
+  bug: {
+    img: "./assets/BugDroid.png",
+    classes: "bg-red-50 text-red-500 border-red-200",
+  },
+  "help wanted": {
+    img: "./assets/Vector.png",
+    classes: "bg-yellow-50 text-yellow-600 border-yellow-200",
+  },
+  enhancement: {
+    img: "./assets/BugDroid.png",
+    classes: "bg-red-50 text-red-500 border-red-200",
+  },
+  documentation: {
+    img: "./assets/BugDroid.png",
+    classes: "bg-red-50 text-red-500 border-red-200",
+  },
+  "good first issue": {
+    img: "./assets/Vector.png",
+    classes: "bg-yellow-50 text-yellow-600 border-yellow-200",
+  },
+};
+
+const renderLabels = (labels) => {
+  let html = "";
+
+  labels.forEach((label) => {
+    let style;
+    if (labelStyles[label]) {
+      style = labelStyles[label];
+    } else {
+      style = {
+        img: "./assets/BugDroid.png",
+        classes: "bg-gray-50 text-gray-500 border-gray-200",
+      };
+    }
+
+    html += `
+      <span class="flex items-center gap-1.5 ${style.classes} border text-xs font-semibold px-3 py-1 rounded-full">
+        <img src="${style.img}" class="w-4 h-4" alt="${label}" />
+        ${label.toUpperCase()}
+      </span>
+    `;
+  });
+
+  return html;
+};
+
+const formatDate = (iso) =>
+  new Date(iso).toLocaleDateString("en-US", {
+    month: "numeric",
+    day: "numeric",
+    year: "numeric",
+  });
+
+let allIssues = [];
+
+const loadCards = async () => {
+  const res = await fetch(
+    "https://phi-lab-server.vercel.app/api/v1/lab/issues",
+  );
+  const json = await res.json();
+  allIssues = json.data;
+  filterCards("all");
+};
+
+const filterCards = (status) => {
+  let filtered;
+  if (status === "all") {
+    filtered = allIssues;
+  } else {
+    filtered = allIssues.filter((issue) => issue.status === status);
+  }
+
+  document.getElementById("count").textContent = filtered.length;
+  displayIssues(filtered);
+};
+
+const displayIssues = (cards) => {
+  const cardContainer = document.getElementById("card-container");
+  cardContainer.innerHTML = "";
+
+  cards.forEach((issue) => {
+    const priority = priorityStyles[issue.priority] || priorityStyles.low;
+    const status = statusStyles[issue.status] || statusStyles.closed;
+
+    const card = document.createElement("div");
+    card.innerHTML = `
+      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden w-full h-full flex flex-col ${status.topBar}">
+        <div class="p-5 flex flex-col flex-1">
+
+          <!-- Status + Priority -->
+          <div class="flex items-center justify-between mb-4">
+            <img src="${status.img}" alt="${issue.status}" class="w-7 h-7" />
+            <span class="text-xs font-semibold px-3 py-1 rounded-full border ${priority.classes} tracking-wide">
+              ${priority.text}
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h2 class="text-gray-900 font-bold text-lg leading-snug mb-2">
+            ${issue.title}
+          </h2>
+
+          <!-- Description -->
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">
+            ${issue.description}
+          </p>
+
+          <!-- Labels -->
+          <div class="flex flex-wrap gap-2 mb-5">
+            ${renderLabels(issue.labels)}
+          </div>
+
+          <!-- Meta -->
+          <div class="border-t border-gray-100 mt-auto pt-4 flex flex-col gap-1 text-gray-400 text-sm">
+            <span>#${issue.id} by <span class="text-gray-600 font-medium">${issue.author}</span></span>
+            <span>${formatDate(issue.createdAt)}</span>
+          </div>
+
+        </div>
+      </div>
+    `;
+    cardContainer.append(card);
+  });
+};
+
+loadCards();
