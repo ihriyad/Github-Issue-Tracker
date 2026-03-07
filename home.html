@@ -1,14 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GitHub Issue Tracker | Home</title>
-     <!-- tailwind -->
+    <!-- tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-     <link rel="stylesheet" href="./styles/style.css" />
-</head>
-<body class="bg-[var(--bg-primary)] max-w-[1240px] mx-auto">
-    hello this is home of Github issue Tracker
+    <!-- css  -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- font awesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body class="bg-gray-100 max-w-[1240px] mx-auto">
+  <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-white p-4 gap-4">
+    <!-- nav left -->
+    <div class="flex items-center gap-4 shrink-0">
+      <img class="w-8" src="./assets/github-logo.png" alt="" />
+      <h2 class="font-medium text-xl whitespace-nowrap">GitHub Issue Tracker</h2>
+    </div>
+    <!-- nav right -->
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+      <form action="" class="flex gap-2 w-full sm:w-auto">
+        <input
+          class="border border-gray-400 px-4 py-2 rounded-sm flex-1 sm:flex-none min-w-0"
+          placeholder="🔍 Search Issue"
+          type="search"
+          required
+        />
+        <button class="bg-blue-500 text-white font-medium p-2 rounded-md shrink-0">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <button class="bg-blue-500 text-white font-medium px-3 py-2 rounded-md w-full sm:w-auto text-center">
+        + New Issue
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- select issues -->
+    <section class="mt-8 bg-white p-4 w-11/12 sm:w-10/12 mx-auto">
+      <div class="flex gap-3 flex-wrap">
+        <button class="bg-blue-500 text-white px-5 py-2 rounded-md border border-gray-200">
+          All
+        </button>
+        <button class="bg-white px-5 py-2 rounded-md border border-gray-200">
+          Open
+        </button>
+        <button class="bg-white px-5 py-2 rounded-md border border-gray-200">
+          Closed
+        </button>
+      </div>
+    </section>
+
+    <!-- cards section -->
+    <section class="mt-4 w-11/12 sm:w-10/12 mx-auto border border-gray-500/20">
+      <!-- count issues -->
+      <div class="bg-white p-4 flex flex-col sm:flex-row justify-between gap-4">
+        <!-- count left -->
+        <div class="flex items-center gap-3">
+          <img class="bg-blue-400/20 rounded-full p-2 shrink-0" src="./assets/Aperture.png" alt="" />
+          <div class="space-y-1">
+            <p class="font-medium"><span id="count">50</span> Issues</p>
+            <p class="text-gray-500 text-sm">Track and manage your project issues</p>
+          </div>
+        </div>
+        <!-- status indicators -->
+        <div class="flex gap-3 sm:items-center">
+          <p class="flex items-center gap-2 text-sm">
+            <img src="./assets/open-icon.png" alt="" class="w-4 h-4" /> Open
+          </p>
+          <p class="flex items-center gap-2 text-sm">
+            <img src="./assets/closed-icon.png" alt="" class="w-4 h-4" /> Closed
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
