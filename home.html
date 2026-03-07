@@ -19,70 +19,162 @@
   </head>
 
   <body class="bg-gray-100 max-w-[1240px] mx-auto">
-  <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-white p-4 gap-4">
-    <!-- nav left -->
-    <div class="flex items-center gap-4 shrink-0">
-      <img class="w-8" src="./assets/github-logo.png" alt="" />
-      <h2 class="font-medium text-xl whitespace-nowrap">GitHub Issue Tracker</h2>
-    </div>
-    <!-- nav right -->
-    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-      <form action="" class="flex gap-2 w-full sm:w-auto">
-        <input
-          class="border border-gray-400 px-4 py-2 rounded-sm flex-1 sm:flex-none min-w-0"
-          placeholder="🔍 Search Issue"
-          type="search"
-          required
-        />
-        <button class="bg-blue-500 text-white font-medium p-2 rounded-md shrink-0">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
-      <button class="bg-blue-500 text-white font-medium px-3 py-2 rounded-md w-full sm:w-auto text-center">
-        + New Issue
-      </button>
-    </div>
-  </header>
-
-  <main>
-    <!-- select issues -->
-    <section class="mt-8 bg-white p-4 w-11/12 sm:w-10/12 mx-auto">
-      <div class="flex gap-3 flex-wrap">
-        <button class="bg-blue-500 text-white px-5 py-2 rounded-md border border-gray-200">
-          All
-        </button>
-        <button class="bg-white px-5 py-2 rounded-md border border-gray-200">
-          Open
-        </button>
-        <button class="bg-white px-5 py-2 rounded-md border border-gray-200">
-          Closed
+    <header
+      class="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-white p-4 gap-4"
+    >
+      <!-- nav left -->
+      <div class="flex items-center gap-4 shrink-0">
+        <img class="w-8" src="./assets/github-logo.png" alt="" />
+        <h2 class="font-medium text-xl whitespace-nowrap">
+          GitHub Issue Tracker
+        </h2>
+      </div>
+      <!-- nav right -->
+      <div
+        class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto"
+      >
+        <form action="" class="flex gap-2 w-full sm:w-auto">
+          <input
+            class="border border-gray-400 px-4 py-2 rounded-sm flex-1 sm:flex-none min-w-0"
+            placeholder="🔍 Search Issue"
+            type="search"
+            required
+          />
+          <button
+            class="bg-blue-500 text-white font-medium p-2 rounded-md shrink-0"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <button
+          class="bg-blue-500 text-white font-medium px-3 py-2 rounded-md w-full sm:w-auto text-center"
+        >
+          + New Issue
         </button>
       </div>
-    </section>
+    </header>
 
-    <!-- cards section -->
-    <section class="mt-4 w-11/12 sm:w-10/12 mx-auto border border-gray-500/20">
-      <!-- count issues -->
-      <div class="bg-white p-4 flex flex-col sm:flex-row justify-between gap-4">
-        <!-- count left -->
-        <div class="flex items-center gap-3">
-          <img class="bg-blue-400/20 rounded-full p-2 shrink-0" src="./assets/Aperture.png" alt="" />
-          <div class="space-y-1">
-            <p class="font-medium"><span id="count">50</span> Issues</p>
-            <p class="text-gray-500 text-sm">Track and manage your project issues</p>
+    <main>
+      <!-- select issues -->
+      <section class="mt-8 bg-white p-4 w-11/12 sm:w-10/12 mx-auto">
+        <div class="flex gap-3 flex-wrap">
+          <button
+            class="bg-blue-500 text-white px-5 py-2 rounded-md border border-gray-200"
+          >
+            All
+          </button>
+          <button class="bg-white px-5 py-2 rounded-md border border-gray-200">
+            Open
+          </button>
+          <button class="bg-white px-5 py-2 rounded-md border border-gray-200">
+            Closed
+          </button>
+        </div>
+      </section>
+
+      <!-- cards section -->
+      <section
+        class="mt-4 w-11/12 sm:w-10/12 mx-auto border border-gray-500/20"
+      >
+        <!-- count issues -->
+        <div
+          class="bg-white p-4 flex flex-col sm:flex-row justify-between gap-4"
+        >
+          <!-- count left -->
+          <div class="flex items-center gap-3">
+            <img
+              class="bg-blue-400/20 rounded-full p-2 shrink-0"
+              src="./assets/Aperture.png"
+              alt=""
+            />
+            <div class="space-y-1">
+              <p class="font-medium"><span id="count">50</span> Issues</p>
+              <p class="text-gray-500 text-sm">
+                Track and manage your project issues
+              </p>
+            </div>
+          </div>
+          <!-- status indicators -->
+          <div class="flex gap-3 sm:items-center">
+            <p class="flex items-center gap-2 text-sm">
+              <img src="./assets/open-icon.png" alt="" class="w-4 h-4" /> Open
+            </p>
+            <p class="flex items-center gap-2 text-sm">
+              <img src="./assets/closed-icon.png" alt="" class="w-4 h-4" />
+              Closed
+            </p>
           </div>
         </div>
-        <!-- status indicators -->
-        <div class="flex gap-3 sm:items-center">
-          <p class="flex items-center gap-2 text-sm">
-            <img src="./assets/open-icon.png" alt="" class="w-4 h-4" /> Open
-          </p>
-          <p class="flex items-center gap-2 text-sm">
-            <img src="./assets/closed-icon.png" alt="" class="w-4 h-4" /> Closed
-          </p>
+
+        <!-- cards form api -->
+        <div class="parent mt-5 px-4 grid md:grid-cols-4">
+          <!-- Card -->
+          <div
+            class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden w-full"
+          >
+            <!-- Top bar accent -->
+            <div
+              class="h-1 w-full bg-gradient-to-r from-green-400 to-emerald-300"
+            ></div>
+
+            <div class="p-5">
+              <!-- Row 1: Status icon + Priority badge -->
+              <div class="flex items-center justify-between mb-4">
+                <!-- Open status spinner icon -->
+                <div
+                  class="w-7 h-7 rounded-full border-2 border-dashed border-green-400 flex items-center justify-center"
+                >
+                  <div><img src="./assets/Open-Status.png" alt="" /></div>
+                </div>
+                <!-- Priority badge -->
+                <span
+                  class="bg-red-50 text-red-500 text-xs font-semibold px-3 py-1 rounded-full border border-red-200 tracking-wide"
+                >
+                  HIGH
+                </span>
+              </div>
+
+              <!-- Title -->
+              <h2 class="text-gray-900 font-bold text-lg leading-snug mb-2">
+                Fix Navigation Menu On Mobile Devices
+              </h2>
+
+              <!-- Description -->
+              <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                The navigation menu doesn't collapse properly on mobile devices…
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span
+                  class="flex items-center gap-1.5 bg-red-50 text-red-500 border border-red-200 text-xs font-semibold px-3 py-1 rounded-full"
+                >
+                  <img src="./assets/BugDroid.png" alt="" /> BUG
+                </span>
+                <span
+                  class="flex items-center gap-1.5 bg-yellow-50 text-yellow-600 border border-yellow-200 text-xs font-semibold px-3 py-1 rounded-full"
+                >
+                  <img src="./assets/Vector (1).png" alt="" /> HELP WANTED
+                </span>
+              </div>
+
+              <!-- Divider -->
+              <div class="border-t border-gray-100 mb-4"></div>
+
+              <!-- Meta info -->
+              <div
+                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-gray-400 text-sm"
+              >
+                <span
+                  >#1 by
+                  <span class="text-gray-600 font-medium">john_doe</span></span
+                >
+                <span>1/15/2024</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
-</body>
+      </section>
+    </main>
+  </body>
 </html>
