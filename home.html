@@ -20,7 +20,7 @@
 
   <body class="bg-gray-100 max-w-[1300px] mx-auto">
     <header
-      class="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-white p-4 gap-4"
+      class="flex flex-col sm:flex-row items-start sm:items-center justify-between bg-white p-4 gap-4 sticky inset-0 z-10"
     >
       <!-- nav left -->
       <div class="flex items-center gap-4 shrink-0">
@@ -43,21 +43,20 @@
             placeholder="Search an issue"
             type="search"
           />
-          <button
-            class="bg-blue-500 text-white font-medium p-2 rounded-md shrink-0"
-          >
+          <button class="active text-white font-medium p-2 rounded-md shrink-0">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
         <button
-          class="bg-blue-500 text-white font-medium px-3 py-2 rounded-md w-full sm:w-auto text-center"
+          onclick="alert('sorry we are working on it')"
+          class="active text-white font-medium px-3 py-2 rounded-md w-full sm:w-auto text-center cursor-pointer"
         >
           + New Issue
         </button>
       </div>
     </header>
 
-    <main class="px-4 md:px-6">
+    <main class="px-4 md:px-8">
       <!-- select btn -->
       <section class="mt-8 bg-white p-4 mx-auto">
         <div class="flex gap-3 flex-wrap">
@@ -99,8 +98,10 @@
               alt=""
             />
             <div class="space-y-1">
-              <p class="font-medium"><span id="count"></span> Issues</p>
-              <p class="text-gray-500 text-sm">
+              <p class="text-[16px] md:text-[20px] font-semibold">
+                <span id="count"></span> Issues
+              </p>
+              <p class="text-gray-500 text-sm text-md">
                 Track and manage your project issues
               </p>
             </div>

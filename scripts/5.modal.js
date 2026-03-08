@@ -1,6 +1,6 @@
 const openModal = async (id) => {
   document.getElementById("modal").classList.remove("hidden");
-
+  //spinner here
   document.getElementById("modal-content").innerHTML = `
     <div class="flex items-center justify-center py-10">
       <div class="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
@@ -23,7 +23,7 @@ const openModal = async (id) => {
       <img src="${status.img}" class="w-5 h-5" />
       <span>${issue.status.toUpperCase()}</span>
       <span>•</span>
-      <span>Opened by ${issue.author}</span>
+      <span class="text-black">Opened by ${issue.author}</span>
       <span>•</span>
       <span>${formatDate(issue.createdAt)}</span>
     </div>

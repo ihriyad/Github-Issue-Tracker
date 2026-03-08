@@ -5,16 +5,13 @@ document.getElementById("login-btn").addEventListener("click", function () {
 
   const getPassword = document.getElementById("input-password");
   const password = getPassword.value;
-//   console.log(password)
+  //   console.log(password)
 
-  if(userName === "admin" && password === "admin123")
-  {
-    alert("Login Success")
-    window.location.replace("home.html")
-  }
-  else
-  {
-    alert("Invalid Username or Password")
+  if (userName === "admin" && password === "admin123") {
+    // alert("Login Success")
+    window.location.replace("home.html");
+  } else {
+    alert("Invalid Username or Password");
   }
   return;
 });

@@ -20,21 +20,24 @@ const statusStyles = {
 
 const labelStyles = {
   bug: {
-    img: "./assets/BugDroid.png",
-    classes: "bg-red-200 text-black border-none",
+    classes: "bg-red-50 text-red-500 border-none",
+    icon: `<i class="fa-solid fa-bug"></i>`,
   },
   "help wanted": {
-    img: "./assets/Vector.png",
-    classes: "bg-yellow-200 text-black border-none",
+    classes: "bg-yellow-50 text-yellow-500 border-none",
+    icon: `<i class="fa-solid fa-life-ring"></i>`,
   },
   enhancement: {
-    classes: "bg-gray-200 text-black border-none",
+    classes: "bg-blue-100 text-blue-500 border-none",
+    icon: `<i class="fa-solid fa-wand-magic-sparkles"></i>`,
   },
   documentation: {
-    classes: "bg-blue-200 text-black border-none",
+    classes: "bg-gray-100 text-gray-500 border-none",
+    icon: `<i class="fa-solid fa-chalkboard"></i>`,
   },
   "good first issue": {
-    classes: "bg-green-200 text-black border-none",
+    classes: "bg-green-100 text-green-500 border-none",
+    icon: `<i class="fa-solid fa-star"></i>`,
   },
 };
 
@@ -49,7 +52,7 @@ const renderLabels = (labels) => {
 
     html += `
       <span class="flex items-center gap-1.5 ${style.classes} border text-xs font-semibold px-3 py-1 rounded-full">
-        ${style.img ? `<img src="${style.img}" class="w-4 h-4" alt="" />` : ""}
+        ${style.icon}
         ${label.toUpperCase()}
       </span>
     `;
@@ -93,7 +96,7 @@ const displayIssues = (cards) => {
 
           <!-- Status + Priority -->
           <div class="flex items-center justify-between mb-4">
-            <img src="${status.img}" alt="${issue.status}" class="w-7 h-7" />
+            <img src="${status.img}" alt="" class="w-7 h-7" />
             <span class="text-xs font-semibold px-3 py-1 rounded-full border ${priority.classes} tracking-wide">
               ${priority.text}
             </span>
