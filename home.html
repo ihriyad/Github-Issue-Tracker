@@ -121,9 +121,26 @@
           <!-- ___ -->
         </div>
       </section>
+      <!-- modal  -->
+      <div
+        id="modal"
+        class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      >
+        <!-- modal Box -->
+        <div class="bg-white rounded-2xl p-6 w-full max-w-lg">
+          <div id="modal-content">Loading...</div>
+          <button
+            onclick="closeModal()"
+            class="mt-4 bg-blue-500 text-white px-5 py-2 rounded-xl float-right"
+          >
+            Close
+          </button>
+        </div>
+      </div>
     </main>
     <script src="./scripts/2.active-btn.js"></script>
     <script src="./scripts/3.cards-api.js"></script>
     <script src="./scripts/4.count-cards.js"></script>
+    <script src="./scripts/5.modal.js"></script>
   </body>
 </html>

@@ -105,6 +105,8 @@ const displayIssues = (cards) => {
     const status = statusStyles[issue.status] || statusStyles.closed;
 
     const card = document.createElement("div");
+    card.style.cursor = "pointer";
+    card.onclick = () => openModal(issue.id);
     card.innerHTML = `
       <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden w-full h-full flex flex-col ${status.topBar}">
         <div class="p-5 flex flex-col flex-1">
