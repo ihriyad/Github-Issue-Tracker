@@ -21,23 +21,20 @@ const statusStyles = {
 const labelStyles = {
   bug: {
     img: "./assets/BugDroid.png",
-    classes: "bg-red-50 text-red-500 border-red-200",
+    classes: "bg-red-200 text-black border-none",
   },
   "help wanted": {
     img: "./assets/Vector.png",
-    classes: "bg-yellow-50 text-yellow-600 border-yellow-200",
+    classes: "bg-yellow-200 text-black border-none",
   },
   enhancement: {
-    img: "./assets/BugDroid.png",
-    classes: "bg-red-50 text-red-500 border-red-200",
+    classes: "bg-gray-200 text-black border-none",
   },
   documentation: {
-    img: "./assets/BugDroid.png",
-    classes: "bg-red-50 text-red-500 border-red-200",
+    classes: "bg-blue-200 text-black border-none",
   },
   "good first issue": {
-    img: "./assets/Vector.png",
-    classes: "bg-yellow-50 text-yellow-600 border-yellow-200",
+    classes: "bg-green-200 text-black border-none",
   },
 };
 
@@ -48,16 +45,11 @@ const renderLabels = (labels) => {
     let style;
     if (labelStyles[label]) {
       style = labelStyles[label];
-    } else {
-      style = {
-        img: "./assets/BugDroid.png",
-        classes: "bg-gray-50 text-gray-500 border-gray-200",
-      };
     }
 
     html += `
       <span class="flex items-center gap-1.5 ${style.classes} border text-xs font-semibold px-3 py-1 rounded-full">
-        <img src="${style.img}" class="w-4 h-4" alt="${label}" />
+        ${style.img ? `<img src="${style.img}" class="w-4 h-4" alt="" />` : ""}
         ${label.toUpperCase()}
       </span>
     `;
@@ -84,18 +76,6 @@ const loadCards = async () => {
   filterCards("all");
 };
 
-const filterCards = (status) => {
-  let filtered;
-  if (status === "all") {
-    filtered = allIssues;
-  } else {
-    filtered = allIssues.filter((issue) => issue.status === status);
-  }
-
-  document.getElementById("count").textContent = filtered.length;
-  displayIssues(filtered);
-};
-
 const displayIssues = (cards) => {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
@@ -108,7 +88,7 @@ const displayIssues = (cards) => {
     card.style.cursor = "pointer";
     card.onclick = () => openModal(issue.id);
     card.innerHTML = `
-      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden w-full h-full flex flex-col ${status.topBar}">
+      <div class="bg-white rounded-2xl  shadow-sm overflow-hidden w-full h-full flex flex-col ${status.topBar}">
         <div class="p-5 flex flex-col flex-1">
 
           <!-- Status + Priority -->
@@ -134,7 +114,7 @@ const displayIssues = (cards) => {
             ${renderLabels(issue.labels)}
           </div>
 
-          <!-- Meta -->
+          <!-- author -->
           <div class="border-t border-gray-100 mt-auto pt-4 flex flex-col gap-1 text-gray-400 text-sm">
             <span>#${issue.id} by <span class="text-gray-600 font-medium">${issue.author}</span></span>
             <span>${formatDate(issue.createdAt)}</span>

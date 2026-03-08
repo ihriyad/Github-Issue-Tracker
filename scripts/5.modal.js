@@ -1,6 +1,11 @@
 const openModal = async (id) => {
   document.getElementById("modal").classList.remove("hidden");
-  document.getElementById("modal-content").innerHTML = "";
+
+  document.getElementById("modal-content").innerHTML = `
+    <div class="flex items-center justify-center py-10">
+      <div class="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+  `;
 
   const res = await fetch(
     `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`,
