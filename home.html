@@ -33,12 +33,15 @@
       <div
         class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto"
       >
-        <form action="" class="flex gap-2 w-full sm:w-auto">
+        <form
+          onsubmit="handleSearch(event)"
+          class="flex gap-2 w-full sm:w-auto"
+        >
           <input
+            id="search-input"
             class="border border-gray-400 px-4 py-2 rounded-sm flex-1 sm:flex-none min-w-0"
             placeholder="🔍 Search Issue"
             type="search"
-            required
           />
           <button
             class="bg-blue-500 text-white font-medium p-2 rounded-md shrink-0"
@@ -128,7 +131,7 @@
       >
         <!-- modal Box -->
         <div class="bg-white rounded-2xl p-6 w-full max-w-lg">
-          <div id="modal-content">Loading...</div>
+          <div id="modal-content"></div>
           <button
             onclick="closeModal()"
             class="mt-4 bg-blue-500 text-white px-5 py-2 rounded-xl float-right"
@@ -142,5 +145,6 @@
     <script src="./scripts/3.cards-api.js"></script>
     <script src="./scripts/4.count-cards.js"></script>
     <script src="./scripts/5.modal.js"></script>
+    <script src="./scripts/6.search.js"></script>
   </body>
 </html>
