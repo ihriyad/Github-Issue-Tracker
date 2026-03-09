@@ -6,9 +6,11 @@ const handleSearch = (event) => {
     .value.toLowerCase();
 
   const filtered = allIssues.filter((issue) =>
-    issue.title.toLowerCase().includes(searchText),
+    issue.title.toLowerCase().startsWith(searchText),
   );
 
   document.getElementById("count").textContent = filtered.length;
   displayIssues(filtered);
+
+  document.getElementById("search-input").value = "";
 };
